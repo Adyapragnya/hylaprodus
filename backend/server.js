@@ -833,37 +833,37 @@ app.get('/api/sat-intervals', async (req, res) => {
 
 
 
-          function sendConsolidatedEmail(vessels) {
-            const transporter = nodemailer.createTransport({
-              service: 'gmail', // or another email service provider
-              auth: {
-                  user: 'admin@hylapps.com',
-                  pass: 'ngsl cgmz pnmt uiux',
-              }
-            });
-            const emailBody = vessels.map(v => `Vessel Name: ${v.NAME}, IMO: ${v.IMO}, Zone: ${v.geofence}`).join('\n');
+        //   function sendConsolidatedEmail(vessels) {
+        //     const transporter = nodemailer.createTransport({
+        //       service: 'gmail', // or another email service provider
+        //       auth: {
+        //           user: 'admin@hylapps.com',
+        //           pass: 'ngsl cgmz pnmt uiux',
+        //       }
+        //     });
+        //     const emailBody = vessels.map(v => `Vessel Name: ${v.NAME}, IMO: ${v.IMO}, Zone: ${v.geofence}`).join('\n');
         
-            const mailOptions = {
-                from: 'admin@hylapps.com',
-                to: 'tech.adyapragnya@gmail.com,hemanthsrinivas707@gmail.com,sales@adyapragnya.com,abhishek.nair@hylapps.com,kdalvi@hylapps.com',
-                subject: 'Hyla-Alert',
-                text: `The following vessels have entered Zone:\n\n${emailBody}`,
-            };
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    console.error('Error sending email:', error);
-                } else {
-                    console.log('Email sent:', info.response);
-                }
-            });
-        }
+        //     const mailOptions = {
+        //         from: 'admin@hylapps.com',
+        //         to: 'tech.adyapragnya@gmail.com,hemanthsrinivas707@gmail.com,sales@adyapragnya.com,abhishek.nair@hylapps.com,kdalvi@hylapps.com',
+        //         subject: 'Hyla-Alert',
+        //         text: `The following vessels have entered Zone:\n\n${emailBody}`,
+        //     };
+        //     transporter.sendMail(mailOptions, (error, info) => {
+        //         if (error) {
+        //             console.error('Error sending email:', error);
+        //         } else {
+        //             console.log('Email sent:', info.response);
+        //         }
+        //     });
+        // }
         
-        // Set an interval to call sendConsolidatedEmail every 1 hour (3600000 ms)
-        setInterval(() => {
-          // Replace this with the actual vessels data fetching logic
+        // // Set an interval to call sendConsolidatedEmail every 1 hour (3600000 ms)
+        // setInterval(() => {
+        //   // Replace this with the actual vessels data fetching logic
          
-          sendConsolidatedEmail(vessels);
-        }, 3600000);
+        //   sendConsolidatedEmail(vessels);
+        // }, 3600000);
           
         
   
