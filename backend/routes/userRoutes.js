@@ -52,7 +52,8 @@ const sendLoginEmail = async (adminEmail, password) => {
         subject: 'Your Organization Admin Account Details',
         text: `Welcome! Your account has been created. 
         Email: ${adminEmail}
-        Temporary Password: ${password}`,
+        Temporary Password: ${password}
+         Please reset your password using this link: ${process.env.REACT_APP_API_BASE_URL2}/authentication/reset-password?token=${token}`,
       };
   
       await transporter.sendMail(mailOptions);
